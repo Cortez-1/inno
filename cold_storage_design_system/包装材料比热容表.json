@@ -1,0 +1,43 @@
+{
+  "file_name": "包装材料比热容表.json",
+  "title": "包装材料比热容",
+  "unit": "kJ/(kg·℃)",
+  "data": [
+    {
+      "material": "木板类",
+      "specific_heat": 2.51
+    },
+    {
+      "material": "黄铜",
+      "specific_heat": 0.39
+    },
+    {
+      "material": "铁皮",
+      "specific_heat": 0.42
+    },
+    {
+      "material": "铝皮",
+      "specific_heat": 0.88
+    },
+    {
+      "material": "玻璃容器类",
+      "specific_heat": 0.84
+    },
+    {
+      "material": "马粪纸、瓦楞纸类",
+      "specific_heat": 1.47
+    },
+    {
+      "material": "黄油纸",
+      "specific_heat": 1.51
+    },
+    {
+      "material": "布雷",
+      "specific_heat": 1.21
+    },
+    {
+      "material": "竹器类",
+      "specific_heat": 1.51
+    }
+  ]
+}

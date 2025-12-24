@@ -1,0 +1,55 @@
+{
+  "file_name": "食品密度表.json",
+  "title": "食品密度表",
+  "unit": "kg/m³",
+  "data": [
+    {
+      "category": "冻肉",
+      "density": 400
+    },
+    {
+      "category": "冻分割肉",
+      "density": 650
+    },
+    {
+      "category": "冻牛羊肉",
+      "density": 330
+    },
+    {
+      "category": "冻羊腔",
+      "density": 250
+    },
+    {
+      "category": "冻鱼",
+      "density": 470
+    },
+    {
+      "category": "篓装、箱装鲜蛋",
+      "density": 260
+    },
+    {
+      "category": "鲜蔬菜",
+      "density": 230
+    },
+    {
+      "category": "篓装、箱装鲜水果",
+      "density": 350
+    },
+    {
+      "category": "冰蛋",
+      "density": 700
+    },
+    {
+      "category": "机制冰",
+      "density": 750
+    },
+    {
+      "category": "猪、牛、羊肉（包括禽兔）",
+      "density": 400
+    },
+    {
+      "category": "其他",
+      "density": "按实际密度采用"
+    }
+  ]
+}

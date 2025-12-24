@@ -1,0 +1,54 @@
+{
+  "file_name": "包装材料重量系数表.json",
+  "title": "货物包装材料和运载工具质量系数Bb",
+  "data": [
+    {
+      "id": 1,
+      "food_category": "肉类、鱼类、冰蛋类",
+      "storage_type": "冷藏",
+      "coefficient": 0.1
+    },
+    {
+      "id": 1,
+      "food_category": "肉类、鱼类、冰蛋类",
+      "storage_type": "肉类冷却或冻结（猪单轨叉挡式）",
+      "coefficient": 0.1
+    },
+    {
+      "id": 1,
+      "food_category": "肉类、鱼类、冰蛋类",
+      "storage_type": "肉类冷却或冻结（猪双轨叉挡式）",
+      "coefficient": 0.3
+    },
+    {
+      "id": 1,
+      "food_category": "肉类、鱼类、冰蛋类",
+      "storage_type": "肉类、鱼类、冰蛋类（搁架式）",
+      "coefficient": 0.3
+    },
+    {
+      "id": 1,
+      "food_category": "肉类、鱼类、冰蛋类",
+      "storage_type": "肉类、鱼类、冰蛋类（吊笼式或架子式手推车）",
+      "coefficient": 0.6
+    },
+    {
+      "id": 2,
+      "food_category": "鲜蛋类",
+      "storage_type": "",
+      "coefficient": 0.25
+    },
+    {
+      "id": 3,
+      "food_category": "鲜水果",
+      "storage_type": "",
+      "coefficient": 0.25
+    },
+    {
+      "id": 4,
+      "food_category": "鲜蔬菜",
+      "storage_type": "",
+      "coefficient": 0.35
+    }
+  ]
+}
