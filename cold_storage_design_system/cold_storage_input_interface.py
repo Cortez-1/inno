@@ -8,6 +8,8 @@ import json
 import os
 import pickle
 
+icon_url = "https://raw.githubusercontent.com/Cortez-1/inno/main/cold_storage_design_system/icons/logo.png"
+    
 class ColdStorageInputInterface:
     """冷库参数输入界面"""
 
@@ -366,8 +368,6 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    icon_url = "https://raw.githubusercontent.com/Cortez-1/inno/main/cold_storage_design_system/icons/logo.png"
-    
     st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", icon_url,
                                         top_offset=-8), unsafe_allow_html=True)
 
@@ -1385,6 +1385,7 @@ def create_excel_export(project_info, rooms_data):
 if __name__ == "__main__":
 
     main()
+
 
 
 
