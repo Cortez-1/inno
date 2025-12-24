@@ -366,7 +366,9 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", "./icons/logo.png",
+    icon_url = "https://raw.githubusercontent.com/Cortez-1/inno/main/cold_storage_design_system/icons/logo.png"
+    
+    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", icon_url,
                                         top_offset=-8), unsafe_allow_html=True)
 
     # 初始化会话状态
@@ -1383,4 +1385,5 @@ def create_excel_export(project_info, rooms_data):
 if __name__ == "__main__":
 
     main()
+
 
