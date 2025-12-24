@@ -211,7 +211,7 @@ def initialize_input_session():
         st.session_state.form_submitted = False
 
 
-def create_header_with_icon(title, icon_path="G:\cold_storage_design_system\icons\logo.png", icon_size=100,
+def create_header_with_icon(title, icon_path="icons/logo.png", icon_size=100,
                             top_offset=0):
     """创建带自定义图标的标题"""
     with open(icon_path, "rb") as image_file:
@@ -224,7 +224,7 @@ def create_header_with_icon(title, icon_path="G:\cold_storage_design_system\icon
 def main():
     st.set_page_config(
         page_title="英诺绿能冷库智能化系统",
-        page_icon="G:\cold_storage_design_system\icons\logo.png",
+        page_icon="icons/logo.png",
         layout="wide",
         initial_sidebar_state="expanded"
     )
@@ -366,7 +366,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", "G:\cold_storage_design_system\icons\logo.png",
+    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", "icons/logo.png",
                                         top_offset=-8), unsafe_allow_html=True)
 
     # 初始化会话状态
@@ -1381,4 +1381,5 @@ def create_excel_export(project_info, rooms_data):
 
 
 if __name__ == "__main__":
+
     main()
