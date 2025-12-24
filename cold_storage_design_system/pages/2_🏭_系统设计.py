@@ -32,9 +32,18 @@ def require_minimize():
 
 # 添加路径以便导入自定义模块
 current_file = os.path.abspath(__file__)
-PROJECT_ROOT = os.path.dirname(os.path.dirname(current_file))
-sys.path.insert(0, PROJECT_ROOT)
-os.chdir(PROJECT_ROOT)
+
+# 将 PROJECT_ROOT 指向仓库根（2 级上），而不是应用子目录
+# 例如： .../repo/cold_storage_design_system/pages/this_file.py
+# parents[0] -> pages, parents[1] -> cold_storage_design_system, parents[2] -> repo root
+PROJECT_ROOT = str(pathlib.Path(current_file).resolve().parents[2])
+
+# 把仓库根加入 sys.path，便于导入项目内模块
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+# 不要改变当前工作目录（避免破坏 Streamlit 页面发现）
+# os.chdir(PROJECT_ROOT)  # 已删除/注释
 
 try:
     from compressor_database_enhanced import BitzerCompressorCalculator, CDS3001BCalculator
