@@ -8,8 +8,6 @@ import json
 import os
 import pickle
 
-icon_url = "https://raw.githubusercontent.com/Cortez-1/inno/main/cold_storage_design_system/icons/logo.png"
-    
 class ColdStorageInputInterface:
     """冷库参数输入界面"""
 
@@ -213,78 +211,20 @@ def initialize_input_session():
         st.session_state.form_submitted = False
 
 
-def create_header_with_icon(title, icon_path= icon_url, icon_size=100,
+def create_header_with_icon(title, icon_path="G:\cold_storage_design_system\icons\logo.png", icon_size=100,
                             top_offset=0):
-    """创建带自定义图标的标题
+    """创建带自定义图标的标题"""
+    with open(icon_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    icon_html = f'<img src="data:image/png;base64,{encoded_string}" width="{icon_size}" height="{icon_size}" style="position: relative; top: {top_offset}px; margin-right: 12px; border-radius: 5px;">'
 
-    兼容本地文件路径和远程URL：
-    - 若传入的是本地可读路径，则读取文件并做 base64 编码（原行为）。
-    - 若传入的是以 http/https 开头的 URL，尝试使用 requests 获取二进制内容并编码；
-      若 requests 不可用或请求失败，则使用图片的远程 URL 直接作为 img src（避免 FileNotFoundError）。
-    - 若以上都失败，退回到仅文本标题并记录警告。
-    """
-    try:
-        encoded_string = None
-
-        if not icon_path:
-            # 无图标路径，直接返回纯文本标题
-            return f'<h1 class="main-header">{title}</h1>'
-
-        # 远程 URL 的情况
-        if isinstance(icon_path, str) and (icon_path.startswith("http://") or icon_path.startswith("https://")):
-            try:
-                # 在函数内部按需导入 requests，避免在没有该包时在模块导入阶段报错
-                import requests
-                resp = requests.get(icon_path, timeout=6)
-                resp.raise_for_status()
-                encoded_string = base64.b64encode(resp.content).decode()
-            except Exception as e:
-                # 无法通过 requests 获取图片，回退到直接使用远程 URL（浏览器将直接加载）
-                st.warning(f"无法通过 HTTP 下载图标，使用远程 URL 作为回退。错误: {e}")
-                icon_html = f'<img src="{icon_path}" width="{icon_size}" height="{icon_size}" style="position: relative; top: {top_offset}px; margin-right: 12px; border-radius: 5px;">'
-                return f'<h1 class="main-header">{icon_html}{title}</h1>'
-
-        else:
-            # 尝试按本地路径打开
-            try:
-                with open(icon_path, "rb") as image_file:
-                    encoded_string = base64.b64encode(image_file.read()).decode()
-            except Exception as e_local:
-                # 本地打开失败，记录警告并尝试将 icon_path 当作 URL 回退（若看起来像 URL）
-                st.warning(f"无法打开图标文件 {icon_path}: {e_local}")
-                if isinstance(icon_path, str) and (icon_path.startswith("http://") or icon_path.startswith("https://")):
-                    try:
-                        import requests
-                        resp = requests.get(icon_path, timeout=6)
-                        resp.raise_for_status()
-                        encoded_string = base64.b64encode(resp.content).decode()
-                    except Exception as e2:
-                        st.warning(f"回退的远程下载也失败: {e2}")
-                        return f'<h1 class="main-header">{title}</h1>'
-                else:
-                    return f'<h1 class="main-header">{title}</h1>'
-
-        # 如果获取到了二进制并编码，使用 data URI 嵌入
-        if encoded_string:
-            icon_html = f'<img src="data:image/png;base64,{encoded_string}" width="{icon_size}" height="{icon_size}" style="position: relative; top: {top_offset}px; margin-right: 12px; border-radius: 5px;">'
-            return f'<h1 class="main-header">{icon_html}{title}</h1>'
-
-        # 最后保底返回纯文本
-        return f'<h1 class="main-header">{title}</h1>'
-
-    except Exception as e:
-        # 捕获一切异常，避免因图标加载失败导致整个应用崩溃
-        try:
-            st.warning(f"加载图标时出现异常: {e}")
-        except Exception:
-            pass
-        return f'<h1 class="main-header">{title}</h1>'
+    return f'<h1 class="main-header">{icon_html}{title}</h1>'
 
 
 def main():
     st.set_page_config(
         page_title="英诺绿能冷库智能化系统",
-        page_icon= icon_url,
+        page_icon="G:\cold_storage_design_system\icons\logo.png",
         layout="wide",
         initial_sidebar_state="expanded"
     )
@@ -426,7 +366,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", icon_url,
+    st.markdown(create_header_with_icon("英诺绿能冷库智能化系统", "G:\cold_storage_design_system\icons\logo.png",
                                         top_offset=-8), unsafe_allow_html=True)
 
     # 初始化会话状态
@@ -1441,5 +1381,4 @@ def create_excel_export(project_info, rooms_data):
 
 
 if __name__ == "__main__":
-
     main()
